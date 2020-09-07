@@ -4,10 +4,10 @@
   "version": "1.0.0",
   "description": "Using Microsofts text to speech API to generate a MP3",
   "main": "lib/index.js",
-  "type": "module",
   "scripts": {
     "start": "tsc-watch --onSuccess \"node ./lib/index.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf lib && tsc"
   },
   "author": "Pascal Jordin <pascal@jordin.eu>",
   "license": "MIT",

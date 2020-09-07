@@ -9,13 +9,9 @@ import {
 } from "microsoft-cognitiveservices-speech-sdk";
 
 const { COGNITIVE_SERVICE_KEY } = process.env;
-const SERVICE_REGION = "francecentral";
+const SERVICE_REGION = "westeurope";
 const TEXT_PATH = "./text/en";
 const MP3_PATH = "./mp3/en";
-
-type JsonText = {
-  ssml: string;
-};
 
 class App {
   private audioConfig: AudioConfig | null = null;
@@ -84,12 +80,17 @@ class App {
       console.log(`Reading content from "${fileName}"...`);
 
       try {
-        const fileRaw = readFileSync(`${TEXT_PATH}/${fileName}`);
-        const { ssml } = JSON.parse(fileRaw.toString()) as JsonText;
+        const fileRaw = readFileSync(`${TEXT_PATH}/${fileName}`, {
+          encoding: "utf-8",
+        });
+        const ssml = fileRaw.toString();
         console.log("Synthesizing text", ssml);
+
+        const outputFilename = fileName.split(".")[0];
+
         this.synthesizer.speakSsmlAsync(
           ssml,
-          this.writeResult(fileName),
+          this.writeResult(`${outputFilename}.mp3`),
           this.handleError
         );
       } catch (error) {
