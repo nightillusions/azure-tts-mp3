@@ -1,0 +1,5 @@
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
+  <voice name="en-US-AriaNeural">
+    <mstts:express-as style="General">In this demo the Action Cards are only displayed. In the complete service it will be possible to have these notes written to external services.</mstts:express-as>
+  </voice>
+</speak>

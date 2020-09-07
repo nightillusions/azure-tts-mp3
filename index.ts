@@ -35,23 +35,37 @@ class App {
             "\nDid you update the subscription info?"
         );
       }
-      if (this.synthesizer) {
-        this.synthesizer.close();
-      }
     };
   }
 
-  private handleError(err: any) {
-    console.trace("err - " + err);
-    if (this.synthesizer) {
-      this.synthesizer.close();
-    }
+  private synthesizeText(ssml: string): Promise<SpeechSynthesisResult> {
+    return new Promise((resolve,  reject) => {
+      if(!this.synthesizer) {
+        reject("No synthesizer")
+        return;
+      }
+      console.log("Synthesize", ssml);
+      try {
+        this.synthesizer.speakSsmlAsync(
+          ssml,
+          resolve,
+          reject
+        );
+      } catch (error) {
+        console.error(`Could not synthesize (${ssml})`, error);
+        reject(error)
+      }
+    })
   }
 
-  public run() {
+  public async run() {
     if (!COGNITIVE_SERVICE_KEY) {
       return;
     }
+
+    const fileFilter = process.argv[2];
+
+    // throw new Error("hallo");
 
     // Recognizer.enableTelemetry(false);
 
@@ -69,37 +83,35 @@ class App {
 
     const files = readdirSync(TEXT_PATH);
 
-    console.log("########################################\n");
-    console.log("###### Starting synthesize speech ######\n");
-    console.log("########################################\n");
+    console.log("########################################");
+    console.log("###### Starting synthesize speech ######");
+    console.log("########################################");
 
-    files.forEach((fileName) => {
-      if (!this.synthesizer) {
-        return;
+
+    for (const fileName of files) {
+      if(fileFilter && !fileName.includes(fileFilter)) {
+        continue;
       }
-      console.log(`Reading content from "${fileName}"...`);
+      const fileRaw = readFileSync(`${TEXT_PATH}/${fileName}`, {
+        encoding: "utf-8",
+      });
+      const ssml = fileRaw.toString();
+      const outputFilename = fileName.split(".")[0];
+      const audioData = await this.synthesizeText(ssml)
+      this.writeResult(`${outputFilename}.mp3`)(audioData)
+    }
 
-      try {
-        const fileRaw = readFileSync(`${TEXT_PATH}/${fileName}`, {
-          encoding: "utf-8",
-        });
-        const ssml = fileRaw.toString();
-        console.log("Synthesizing text", ssml);
+    console.log("########################################");
+    console.log("###### Finished synthesize speech ######");
+    console.log("########################################");
 
-        const outputFilename = fileName.split(".")[0];
+    this.close();
+  }
 
-        this.synthesizer.speakSsmlAsync(
-          ssml,
-          this.writeResult(`${outputFilename}.mp3`),
-          this.handleError
-        );
-      } catch (error) {
-        console.error(`Could not parse file (${fileName})`, error);
-      }
-    });
-    console.log("########################################\n");
-    console.log("###### Finished synthesize speech ######\n");
-    console.log("########################################\n");
+  private close() {
+    if (this.synthesizer) {
+      this.synthesizer.close();
+    }
   }
 }
 
