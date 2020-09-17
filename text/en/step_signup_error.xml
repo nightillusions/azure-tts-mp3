@@ -1,5 +1,5 @@
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
   <voice name="en-US-AriaNeural">
-    <mstts:express-as style="General">We hope you enjoyed the demo. Thank you very much for participating!</mstts:express-as>
+    <mstts:express-as style="General">Unfortunately there was a problem with your registration!</mstts:express-as>
   </voice>
 </speak>

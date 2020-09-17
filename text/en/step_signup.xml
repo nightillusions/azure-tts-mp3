@@ -1,5 +1,5 @@
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
   <voice name="en-US-AriaNeural">
-    <mstts:express-as style="General">Let’s get to the last example of this demo. This one will show you addresses that are mentioned during your calls.</mstts:express-as>
+    <mstts:express-as style="General">Would you like us to notify you when CLINQ ai starts? Just enter your email address.</mstts:express-as>
   </voice>
 </speak>

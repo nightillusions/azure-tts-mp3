@@ -1,5 +1,5 @@
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
   <voice name="en-US-AriaNeural">
-    <mstts:express-as style="General">Now, after the sound, say one or more sentences that contain your keywords.</mstts:express-as>
+    <mstts:express-as style="General">After the sound, say one or more sentences that contain your keywords.</mstts:express-as>
   </voice>
 </speak>

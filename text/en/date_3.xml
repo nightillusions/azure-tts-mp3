@@ -1,5 +1,5 @@
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
   <voice name="en-US-AriaNeural">
-    <mstts:express-as style="General">That worked out great! In this Action Card you can see which date CLINQ AI would have recognized for you. You can always decide whether to let CLINQ AI add the appointment or not.</mstts:express-as>
+    <mstts:express-as style="General">That worked out great! Now you can see which date CLINQ.ai would have added to your calendar.</mstts:express-as>
   </voice>
 </speak>
