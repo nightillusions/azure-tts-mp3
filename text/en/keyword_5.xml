@@ -1,5 +1,5 @@
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
   <voice name="en-US-AriaNeural">
-    <mstts:express-as style="General">Put some arbitrary words below and click on "set".</mstts:express-as>
+    <mstts:express-as style="General">Give it a try! Enter two or three keywords below and click on the save button.</mstts:express-as>
   </voice>
 </speak>

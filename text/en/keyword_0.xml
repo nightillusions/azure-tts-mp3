@@ -1,5 +1,6 @@
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
   <voice name="en-US-AriaNeural">
-    <mstts:express-as style="General">Next: CLINQ AI will create notes for you.</mstts:express-as>
+    <mstts:express-as style="General">Let’s take a look at our first example. CLINQ AI understands what you say during your calls and can add notes for certain keywords. For example, if you say the word "customer", CLINQ AI will suggest creating a note for you.
+    </mstts:express-as>
   </voice>
 </speak>

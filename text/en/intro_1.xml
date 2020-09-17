@@ -1,6 +1,6 @@
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
   xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
   <voice name="en-US-AriaNeural">
-    <mstts:express-as style="General">In this demo you can already explore some of the functionalities of CLINQ AI. In the final version these will be available during your calls.</mstts:express-as>
+    <mstts:express-as style="General">Hi! In this demo you can explore three of the functionalities of CLINQ AI. In the final version these will be available during your calls.</mstts:express-as>
   </voice>
 </speak>
